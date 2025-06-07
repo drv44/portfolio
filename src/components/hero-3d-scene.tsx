@@ -8,7 +8,16 @@ import { skills } from "@/lib/data"
 
 // Neon color palette for borders
 const neonColors = [
-  "#00fff7", "#ff00e6", "#00ff85", "#ffe600", "#ff007b", "#00aaff", "#ff6b00", "#aaff00", "#ff00c8", "#00ffd0"
+  "#2563eb", // blue-600
+  "#1e293b", // slate-800 (dark/black)
+  "#3b82f6", // blue-500 (neon blue)
+  "#0ea5e9", // sky-500
+  "#1e40af", // blue-900
+  "#0f172a", // slate-900 (almost black)
+  "#38bdf8", // sky-400
+  "#172554", // blue-950
+  "#60a5fa", // blue-400
+  "#0ea5e9"  // sky-500 (repeat for more blue)
 ]
 
 // Component for individual skill nodes
@@ -24,7 +33,7 @@ function SkillNode({
   const IconComponent = skill.icon
   return (
     <mesh position={position}>
-      <Sphere args={[0.16, 20, 20]}>
+      <Sphere args={[0.32, 20, 20]}>
         <meshPhysicalMaterial
           color="#18181b"
           metalness={0.8}
@@ -36,7 +45,7 @@ function SkillNode({
         />
       </Sphere>
       {/* Neon border effect */}
-      <Sphere args={[0.18, 20, 20]}>
+      <Sphere args={[0.36, 20, 20]}>
         <meshBasicMaterial color={neonColor} transparent opacity={0.7} />
       </Sphere>
       <Html distanceFactor={7} center>
@@ -45,40 +54,45 @@ function SkillNode({
           style={{ borderColor: neonColor, pointerEvents: "auto" }}
           title={skill.name}
         >
-          <IconComponent className="w-5 h-5" style={{ color: neonColor }} />
+          <IconComponent className="w-12 h-12" style={{ color: neonColor }} />
         </div>
       </Html>
     </mesh>
   )
 }
 
-function FloatingSkills({ globeRadius }: { globeRadius: number }) {
-  // Distribute skill nodes at varying heights and radii
+function FloatingSkills({ areaSize = 6 }: { areaSize?: number }) {
+  // Distribute skill nodes randomly in a 3D box
   const numSkills = skills.length
   const skillNodes = useMemo(() => {
     const nodes = []
     for (let i = 0; i < numSkills; i++) {
-      // Vary the height and radius for each icon
-      const angle = (i / numSkills) * Math.PI * 2
-      const height = (Math.random() - 0.5) * globeRadius * 1.2 // Vary Y
-      const radius = globeRadius * (1.15 + Math.random() * 0.4) // Vary distance from center
-      const x = Math.cos(angle) * radius
-      const y = height
-      const z = Math.sin(angle) * radius
+      // Random position in a 3D box
+      const x = (Math.random() - 0.5) * areaSize
+      const y = (Math.random() - 0.5) * areaSize
+      const z = (Math.random() - 0.5) * areaSize
       nodes.push({
         position: [x, y, z] as THREE.Vector3Tuple,
         skill: skills[i],
         neonColor: neonColors[i % neonColors.length],
+        floatPhase: Math.random() * Math.PI * 2, // for unique float animation
       })
     }
     return nodes
-  }, [numSkills, globeRadius])
+  }, [numSkills, areaSize])
 
-  // Animate the icons to rotate around the globe
+  // Animate the icons to float up and down
   const groupRef = useRef<THREE.Group>(null!)
-  useFrame(() => {
+  useFrame(({ clock }) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += 0.0015
+      groupRef.current.children.forEach((child, idx) => {
+        const node = skillNodes[idx]
+        if (child && node) {
+          // Animate Y position with a sine wave
+          const t = clock.getElapsedTime()
+          child.position.y = node.position[1] + Math.sin(t + node.floatPhase) * 0.25
+        }
+      })
     }
   })
 
@@ -91,55 +105,21 @@ function FloatingSkills({ globeRadius }: { globeRadius: number }) {
   )
 }
 
-function NeonGlobe({ radius }: { radius: number }) {
-  const globeRef = useRef<THREE.Mesh>(null!)
-  // Load the code snippet texture
-  const [codeTexture] = useTexture(["/assets/textures/code_snippet.png"])
-  useFrame(() => {
-    if (globeRef.current) {
-      globeRef.current.rotation.y += 0.001
-    }
-  })
-  return (
-    <>
-      {/* Main dark globe with code snippet texture */}
-      <Sphere ref={globeRef} args={[radius, 64, 64]}>
-        <meshPhysicalMaterial
-          map={codeTexture}
-          color="#fff"
-          metalness={0.7}
-          roughness={0.18}
-          clearcoat={0.8}
-          clearcoatRoughness={0.1}
-          transparent={true}
-          opacity={0.95}
-        />
-      </Sphere>
-      {/* Neon border (slightly larger sphere) */}
-      <Sphere args={[radius * 1.01, 64, 64]}>
-        <meshBasicMaterial color="#00fff7" transparent opacity={0.35} />
-      </Sphere>
-    </>
-  )
-}
-
 export default function Hero3DScene() {
-  const globeRadius = 1.6
   return (
-    <div className="absolute inset-0 z-0 flex items-center justify-center" style={{ pointerEvents: "auto", maxWidth: 500, maxHeight: 500, margin: "0 auto" }}>
-      <Canvas style={{ width: "100%", height: "100%" }} camera={{ position: [0, 0, 7], fov: 45 }}>
+    <div className="fixed inset-0 z-0 flex items-center justify-center" style={{ pointerEvents: "auto", width: "100vw", height: "100vh", maxWidth: "100vw", maxHeight: "100vh", margin: 0 }}>
+      <Canvas style={{ width: "100vw", height: "100vh" }} camera={{ position: [0, 0, 18], fov: 45 }}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.45} />
           <directionalLight position={[5, 5, 10]} intensity={1.1} />
-          <NeonGlobe radius={globeRadius} />
-          <FloatingSkills globeRadius={globeRadius} />
+          <FloatingSkills areaSize={22} />
         </Suspense>
         <OrbitControls
           enableZoom={false}
           enablePan={false}
           autoRotate={false}
-          minDistance={4}
-          maxDistance={10}
+          minDistance={8}
+          maxDistance={32}
           minPolarAngle={Math.PI / 6}
           maxPolarAngle={(5 * Math.PI) / 6}
         />

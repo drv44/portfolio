@@ -14,7 +14,7 @@ export default function ContactSection() {
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.5 }}
     >
       <div className="container mx-auto px-4 text-center">
         <motion.h2 className="mb-8 text-3xl font-bold tracking-tight text-primary sm:text-4xl" variants={itemVariants}>

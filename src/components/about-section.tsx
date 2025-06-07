@@ -4,6 +4,7 @@ import { siteConfig, skills, type Skill } from "@/lib/data"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { sectionVariants, itemVariants, skillPillVariants } from "@/lib/animations"
+import SkillsSlider from "./skills-marquee"
 
 const SkillPill = ({ skill, index }: { skill: Skill; index: number }) => (
   <motion.div
@@ -24,7 +25,7 @@ export default function AboutSection() {
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.5 }}
     >
       <div className="container mx-auto px-4">
         <motion.h2
@@ -36,7 +37,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-12 items-center">
           <motion.div variants={itemVariants} className="md:col-span-1 flex justify-center">
             <Image
-              src={"/profile.jpg"}
+              src={"/dhruv.jpg"}
               alt={siteConfig.name}
               width={300}
               height={300}
@@ -44,27 +45,56 @@ export default function AboutSection() {
             />
           </motion.div>
           <motion.div variants={itemVariants} className="md:col-span-2 space-y-6">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Hello! I&apos;m {siteConfig.name}, a passionate and driven {siteConfig.role} with a strong foundation in
-              software development and a keen interest in creating impactful web applications. As a {siteConfig.status},
-              I am eager to apply my skills to real-world challenges and contribute to innovative projects.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I thrive in collaborative environments and am always excited to learn new technologies and methodologies.
-              My goal is to grow as a developer and make meaningful contributions to the tech industry.
-            </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Hello! I&apos;m {siteConfig.name}, currently pursuing B.Tech in Computer Science & Engineering (AI) at NSUT, Delhi. I aim to grow as a developer and contribute to impactful, innovative tech projects in the future.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+            I have hands-on experience with modern web technologies like React, Next.js, Node.js, and Tailwind CSS, as well as backend frameworks such as Express.js, Flask and FastAPI. My academic journey has been complemented by practical projects in AI-powered finance, real-time chat applications, and Langchain-based Resume analyzer, along with achievements in coding competitions and certifications.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+            I thrive in collaborative environments and am always eager to learn new technologies and methodologies. My goal is to grow as a developer, tackle real-world challenges, and make meaningful contributions to the tech industry.
+          </p>
+          <div className="mt-8">
+            <h3 className="text-xl font-semibold text-primary mb-2">Education</h3>
+            <ul className="text-base text-muted-foreground space-y-1">
+              <li>
+                <span className="font-medium">B.Tech in Computer Science & Engineering (Artificial Intelligence)</span>, NSUT, Delhi &mdash; <span className="italic">2022–2026 (Expected)</span><br />
+                <span className="text-sm">CGPA: 8.73</span>
+              </li>
+              <li>
+                <span className="font-medium">Class XII (CBSE)</span>, TCIS, New Delhi &mdash; <span className="italic">2020–2021</span><br />
+                <span className="text-sm">Percentage: 95.60%</span>
+              </li>
+              <li>
+                <span className="font-medium">Class X (CBSE)</span>, TCIS, New Delhi &mdash; <span className="italic">2018–2019</span><br />
+                <span className="text-sm">Percentage: 95.40%</span>
+              </li>
+            </ul>
+          </div>
+          <div className="mt-12 mb-2">
+          </div>
           </motion.div>
         </div>
+        
+        {/* My Skills Section */}
+        <div className="mt-20">
+          <h3 className="mb-8 text-center text-3xl font-bold text-primary">My Skills</h3>
+          <div className="flex justify-center">
+            <div className="w-full">
+              <SkillsSlider />
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <motion.div variants={itemVariants} className="mt-20">
+        {/* <motion.div variants={itemVariants} className="mt-20">
           <h3 className="mb-10 text-center text-3xl font-semibold text-foreground">My Skills</h3>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
             {skills.map((skill, index) => (
               <SkillPill key={skill.name} skill={skill} index={index} />
             ))}
           </div>
-        </motion.div>
-      </div>
+        </motion.div> */}
     </motion.section>
   )
 }

@@ -71,7 +71,7 @@ const TypingAnimation = ({
 }
 
 TypingAnimation.defaultProps = {
-  texts: ["Software Engineer", "Web Developer", "Problem Solver"],
+  texts: ["Software Engineer", "Web Developer", "Problem Solver", "Full Stack"],
   typingSpeed: 100,
   deletingSpeed: 50,
   pauseDuration: 1500,
