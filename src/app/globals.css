@@ -4,39 +4,39 @@
 
 @layer base {
   :root {
-    --background: 224 71.4% 4.1%; /* Very Dark Blue/Black */
-    --foreground: 210 20% 98%; /* Almost White */
+    --background: 220 40% 5%; /* Very Dark Desaturated Blue */
+    --foreground: 210 20% 98%; /* Almost White / Light Gray */
 
-    --card: 224 71.4% 4.1%;
+    --card: 220 30% 8%; /* Slightly Lighter Dark Desaturated Blue for Cards */
     --card-foreground: 210 20% 98%;
 
-    --popover: 224 71.4% 4.1%;
+    --popover: 220 40% 5%;
     --popover-foreground: 210 20% 98%;
 
-    --primary: 142.1 70.6% 45.3%; /* Vibrant Green */
-    --primary-foreground: 210 20% 98%;
+    --primary: 190 95% 55%; /* Vibrant Cyan/Electric Blue */
+    --primary-foreground: 220 40% 5%; /* Dark for text on primary buttons */
 
-    --secondary: 215 27.9% 16.9%; /* Dark Muted Blue/Gray */
+    --secondary: 215 30% 12%; /* Muted Dark Blue */
     --secondary-foreground: 210 20% 98%;
 
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%; /* Lighter Gray for muted text */
+    --muted: 215 30% 12%;
+    --muted-foreground: 215 20% 65%; /* Lighter Gray for muted text */
 
-    --accent: 142.1 70.6% 45.3%; /* Vibrant Green */
-    --accent-foreground: 210 20% 98%;
+    --accent: 190 95% 55%; /* Vibrant Cyan/Electric Blue */
+    --accent-foreground: 220 40% 5%;
 
-    --destructive: 0 62.8% 30.6%; /* Dark Red */
+    --destructive: 0 70% 50%; /* A suitable red */
     --destructive-foreground: 210 20% 98%;
 
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 142.1 70.6% 45.3%; /* Vibrant Green for focus rings */
+    --border: 215 25% 18%; /* Darker border color */
+    --input: 215 25% 18%;
+    --ring: 190 95% 60%; /* Vibrant Cyan/Electric Blue for focus rings */
 
     --radius: 0.5rem;
   }
 
   .dark {
-    /* These variables are already set for dark mode by default in :root */
+    /* Variables are already set for dark mode by default in :root */
   }
 }
 
@@ -52,6 +52,6 @@
     scroll-behavior: smooth;
   }
   section {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-20 md:py-28 lg:py-36 overflow-hidden; /* Added overflow-hidden for animations */
   }
 }
