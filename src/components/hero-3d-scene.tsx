@@ -5,6 +5,7 @@ import { OrbitControls, Html, Sphere, useTexture } from "@react-three/drei"
 import { Suspense, useRef, useMemo } from "react"
 import * as THREE from "three"
 import { skills } from "@/lib/data"
+import { i } from "framer-motion/client"
 
 // Neon color palette for borders
 const neonColors = [
@@ -84,7 +85,7 @@ function FloatingSkills({ globeRadius }: { globeRadius: number }) {
 
   return (
     <group ref={groupRef}>
-      {skillNodes.map((node, i) => (
+      {skillNodes.map((node) => (
         <SkillNode key={node.skill.name} position={node.position} skill={node.skill} neonColor={node.neonColor} />
       ))}
     </group>
