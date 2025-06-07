@@ -1,21 +1,21 @@
 "use client"
 
-import { siteConfig, skills, type Skill } from "@/lib/data"
+import { siteConfig, type Skill } from "@/lib/data"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { sectionVariants, itemVariants, skillPillVariants } from "@/lib/animations"
+import { sectionVariants, itemVariants } from "@/lib/animations"
 import SkillsSlider from "./skills-marquee"
 
-const SkillPill = ({ skill, index }: { skill: Skill; index: number }) => (
-  <motion.div
-    custom={index} // Pass index for stagger
-    variants={skillPillVariants}
-    className="flex items-center gap-2 rounded-full border border-primary/50 bg-secondary/50 px-4 py-2 text-sm text-foreground shadow-md transition-all hover:bg-primary/20 hover:shadow-primary/30 transform hover:scale-105"
-  >
-    <skill.icon className="h-5 w-5 text-primary" />
-    <span>{skill.name}</span>
-  </motion.div>
-)
+// const SkillPill = ({ skill, index }: { skill: Skill; index: number }) => (
+//   <motion.div
+//     custom={index} // Pass index for stagger
+//     variants={skillPillVariants}
+//     className="flex items-center gap-2 rounded-full border border-primary/50 bg-secondary/50 px-4 py-2 text-sm text-foreground shadow-md transition-all hover:bg-primary/20 hover:shadow-primary/30 transform hover:scale-105"
+//   >
+//     <skill.icon className="h-5 w-5 text-primary" />
+//     <span>{skill.name}</span>
+//   </motion.div>
+// )
 
 export default function AboutSection() {
   return (

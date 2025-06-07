@@ -40,13 +40,14 @@
 // }
 
 import { skills } from "@/lib/data"
+import type { Skill } from "@/lib/data"
 
 export default function SkillsSlider() {
   return (
     <div className="overflow-hidden w-full py-8 bg-background">
       <div className="skills-slider">
         <div className="skills-track">
-          {skills.concat(skills).map((skill: any, idx: number) => (
+          {skills.concat(skills).map((skill: Skill, idx: number) => (
             <div key={skill.name + idx} className="flex flex-col items-center min-w-[120px] mx-8">
               <skill.icon
                 className="h-14 w-14 mb-2"
