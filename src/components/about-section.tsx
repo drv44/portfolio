@@ -1,6 +1,6 @@
 "use client"
 
-import { siteConfig, type Skill } from "@/lib/data"
+import { siteConfig } from "@/lib/data"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { sectionVariants, itemVariants } from "@/lib/animations"
