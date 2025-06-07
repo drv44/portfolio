@@ -5,7 +5,6 @@ import { OrbitControls, Html, Sphere, useTexture } from "@react-three/drei"
 import { Suspense, useRef, useMemo } from "react"
 import * as THREE from "three"
 import { skills } from "@/lib/data"
-import { i } from "framer-motion/client"
 
 // Neon color palette for borders
 const neonColors = [
