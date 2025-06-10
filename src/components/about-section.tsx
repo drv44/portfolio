@@ -21,7 +21,7 @@ export default function AboutSection() {
   return (
     <motion.section
       id="about"
-      className="bg-card" // Use card background for contrast
+      className="bg-card" // Retain background for contrast
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
@@ -34,7 +34,7 @@ export default function AboutSection() {
         >
           About Me
         </motion.h2>
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-12 items-center">
+        <div className="grid grid-cols-1 gap-16 sm:grid-cols-1 md:grid-cols-3 md:gap-12 items-center">
           <motion.div variants={itemVariants} className="md:col-span-1 flex justify-center">
             <Image
               src={"/dhruv.jpg"}

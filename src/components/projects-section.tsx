@@ -82,16 +82,16 @@ export default function ProjectsSection() {
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }} // Changed from 0.1 to 0.5
+      viewport={{ once: true, amount: 0.5 }}
     >
       <div className="container mx-auto px-4">
         <motion.h2
-          variants={itemVariants} // Use itemVariants for the title within the section
+          variants={itemVariants}
           className="mb-16 text-center text-4xl font-bold tracking-tight text-primary sm:text-5xl"
         >
           My Projects
         </motion.h2>
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
