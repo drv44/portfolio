@@ -4,7 +4,9 @@
 
 @layer base {
   :root {
+    --background: #0a0f1c;
     --background: 220 40% 5%; /* Very Dark Desaturated Blue */
+    --background: #fafafa;
     --foreground: 210 20% 98%; /* Almost White / Light Gray */
 
     --card: 220 30% 8%; /* Slightly Lighter Dark Desaturated Blue for Cards */

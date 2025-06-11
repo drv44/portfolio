@@ -18,7 +18,9 @@ export default function AboutSection() {
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.3 }}
+      // Add these props to prevent hydration issues
+      suppressHydrationWarning={true}
     >
       <div className="container mx-auto px-4">
         <motion.h2
@@ -35,6 +37,11 @@ export default function AboutSection() {
               width={300}
               height={300}
               className="rounded-full border-4 border-primary object-cover shadow-xl aspect-square"
+              onError={(e) => {
+    console.log('Image failed to load:', e);
+    // Add fallback image
+  }}
+  priority 
             />
           </motion.div>
           <motion.div variants={itemVariants} className="md:col-span-2 space-y-6">
