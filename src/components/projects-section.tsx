@@ -1,9 +1,9 @@
 "use client"
 
-import { projects, type Project } from "@/lib/data"
+import { projects } from "@/lib/data"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
-import Link from "next/link"
+// import Link from "next/link"
 // import { Github, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
 
