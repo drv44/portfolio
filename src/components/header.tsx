@@ -19,6 +19,11 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const codingProfiles = [
+    { name: "LeetCode", url: siteConfig.leetcode },
+    { name: "Codeforces", url: siteConfig.codeforces },
+  ]
+
   return (
     <header
       className={cn(
@@ -46,6 +51,13 @@ export default function Header() {
             >
               {link.name}
             </Link>
+          ))}
+          {codingProfiles.map((profile) => (
+            <Button key={profile.name} asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+              <Link href={profile.url} target="_blank" rel="noopener noreferrer">
+                {profile.name}
+              </Link>
+            </Button>
           ))}
           <Link href="#contact" onClick={() => setIsOpen(false)}>
             <Button
@@ -78,7 +90,14 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
-            <Link href="#contact" className="w-full" onClick={() => setIsOpen(false)}>
+            {codingProfiles.map((profile) => (
+              <Button key={profile.name} asChild variant="ghost" size="sm" className="w-full text-muted-foreground hover:text-primary">
+                <Link href={profile.url} target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
+                  {profile.name}
+                </Link>
+              </Button>
+            ))}
+            <Link href="#contact" onClick={() => setIsOpen(false)}>
               <Button
                 variant="default"
                 size="lg"

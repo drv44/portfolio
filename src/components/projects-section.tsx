@@ -2,10 +2,12 @@
 
 import { projects } from "@/lib/data"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
-// import Link from "next/link"
-// import { Github, ExternalLink } from "lucide-react"
+import Link from "next/link"
+import { Github, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
+import { Badge } from "@/components/ui/badge"
 
 export default function ProjectsSection() {
   return (
@@ -48,6 +50,31 @@ export default function ProjectsSection() {
                 <CardContent className="p-6 space-y-3">
                   <CardTitle className="text-2xl font-semibold text-foreground">{project.title}</CardTitle>
                   <p className="text-sm text-muted-foreground line-clamp-3">{project.description}</p>
+                  {project.tags && project.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {project.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
+                  <div className="mt-4 flex space-x-4">
+                    {project.githubUrl && (
+                      <Button asChild className="flex items-center rounded-full bg-primary text-primary-foreground hover:bg-primary/80">
+                        <Link href={project.githubUrl} target="_blank">
+                          <Github className="mr-1 h-5 w-5" /> GitHub
+                        </Link>
+                      </Button>
+                    )}
+                    {project.liveUrl && (
+                      <Button asChild className="flex items-center rounded-full bg-primary text-primary-foreground hover:bg-primary/80">
+                        <Link href={project.liveUrl} target="_blank">
+                          <ExternalLink className="mr-1 h-5 w-5" /> Live Demo
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>

@@ -25,12 +25,13 @@ export const siteConfig = {
   email: "dhruvsrkar26@gmail.com",
   github: "https://github.com/drv44",
   linkedin: "https://www.linkedin.com/in/dhruv-sarkar-76a565308/",
+  leetcode: "https://leetcode.com/u/dhruvsarkar960/",  // Replace with actual LeetCode profile URL
+  codeforces: "https://codeforces.com/profile/drv4",  // Replace with actual Codeforces profile URL
 }
-
 export const navLinks = [
   { name: "About", hash: "#about" },
   { name: "Projects", hash: "#projects" },
-  { name: "Experience", hash: "#experience" },
+  // { name: "Experience", hash: "#experience" },
   { name: "Contact", hash: "#contact" },
 ]
 
@@ -112,7 +113,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Shadcn", "Supabase", "Gemini API"],
     imageUrl: "/welth.png",
     githubUrl: siteConfig.github + "/welth.git", // Replace with actual link
-    liveUrl: "#",
+    liveUrl: "https://welth-green.vercel.app",
     icon: Briefcase,
   },
   {
@@ -121,19 +122,47 @@ export const projects: Project[] = [
       "Built a real-time MERN stack chat app with Socket.IO for low-latency messaging. Designed scalable, event-driven backend, optimized MongoDB for efficient storage, and developed a responsive, modular React frontend for robust, maintainable user experience.",
     tags: ["MongoDB", "Express.js", "React.js", "Node.js", "Socket.IO", "Chakra-UI"],
     imageUrl: "/convohub.png",
-    githubUrl: siteConfig.github + "/chatapp.git", // Replace
-    liveUrl: "#", // Replace
+    githubUrl: siteConfig.github + "/Convohub.git", // Replace
+    liveUrl: "https://convohub-erob.onrender.com", // Replace
     icon: Lightbulb,
   },
+  // {
+  //   title: "TuneCV - AI Resume Analyzer",
+  //   description:
+  //     "Developed an AI-driven app to analyze resumes and suggest improvements. Utilized Next.js, Tailwind CSS, Python, FastAPI, and Gemini API for intelligent analysis, with PostgreSQL for robust data storage, delivering actionable feedback for enhanced career prospects.",
+  //   tags: ["Next.js", "Tailwindcss", "Python", "FastAPI", "Gemini API", "Langchain", "PostgreSQL"],
+  //   imageUrl: "/tunecv.png",
+  //   githubUrl: siteConfig.github + "/tuneCV.git", // Replace
+  //   // liveUrl: "#", // Replace
+  //   icon: GraduationCap,
+  // },
   {
-    title: "TuneCV - AI Resume Analyzer",
+    title: "Oralcare - AI Driven Dental Imaging Platform",
     description:
-      "Developed an AI-driven app to analyze resumes and suggest improvements. Utilized Next.js, Tailwind CSS, Python, FastAPI, and Gemini API for intelligent analysis, with PostgreSQL for robust data storage, delivering actionable feedback for enhanced career prospects.",
-    tags: ["Next.js", "Tailwindcss", "Python", "FastAPI", "Gemini API", "Langchain", "PostgreSQL"],
-    imageUrl: "/tunecv.png",
-    githubUrl: siteConfig.github + "/tuneCV.git", // Replace
-    liveUrl: "#", // Replace
-    icon: GraduationCap,
+      "Developed a dental DICOM image upload app using Roboflow for detection and Gemini API for diagnostics, deployed on Vercel and Render for scalability.",
+    tags: ["ReactJS", "Python", "FastAPI", "Gemini", "Roboflow"],
+    imageUrl: "/oralcare.png",
+    githubUrl: siteConfig.github + "/oral-care.git", // Replace with actual link
+    liveUrl: "https://oral-care.vercel.app",
+    icon: Briefcase,
+  },
+  {
+    title: "Heart Risk Predictor",
+    description: "Deployed a team-based heart disease risk predictor using SVM, Logistic Regression, Random Forest, KNN, Neural Networks, and ensembles on a 1M+ row dataset, achieving 95.21% accuracy.",
+    tags: ["Python", "scikit-learn", "Tensorflow", "PyTorch", "HTML", "CSS", "Flask"],
+    imageUrl: "/heart.png",
+    githubUrl: siteConfig.github + "/HeartRiskPredictorML.git",
+    liveUrl: "https://heart-risk-predictor.onrender.com",
+    icon: Briefcase,
+  },
+  {
+    title: "IngestIQ - Multi-Agent Document Processing System",
+    description: "Built a FastAPI backend with React frontend for uploading documents (PDF, JSON, Email), classifying via Google Gemini, extracting fields, and storing memory in Redis.",
+    tags: ["ReactJS", "Gemini", "Redis", "FastAPI"],
+    imageUrl: "/ingestiq.png",
+    githubUrl: siteConfig.github + "/IngestIQ.git",
+    // liveUrl: "https://oral-care.vercel.app",
+    icon: Briefcase,
   },
 ]
 
