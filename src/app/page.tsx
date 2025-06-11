@@ -4,6 +4,7 @@ import Header from "@/components/header"
 import HeroSection from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
 import ProjectsSection from "@/components/projects-section"
+import { SimpleAboutSection } from "@/components/simple";
 // import ExperienceSection from "@/components/experience-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
@@ -16,8 +17,9 @@ export default function PortfolioPage() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
+        <SimpleAboutSection />
+        {/* <AboutSection /> */}
+        {/* <ProjectsSection /> */}
         {/* <ExperienceSection /> */}
         <ContactSection />
       </main>
