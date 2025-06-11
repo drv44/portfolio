@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 export const metadata = {
   title: "SDE Portfolio | Dhruv Sarkar",
   description: "Modern portfolio of Dhruv Sarkar, an aspiring Software Engineer.",
+  viewport: 'width=device-width, initial-scale=1',
 }
 
 export default function RootLayout({
