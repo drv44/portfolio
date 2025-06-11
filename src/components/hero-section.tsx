@@ -5,7 +5,7 @@ import { siteConfig, socialLinks, skills } from "@/lib/data"
 import { ArrowDown, Download } from "lucide-react"
 import Link from "next/link"
 import TypingAnimation from "./typing-animation"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { sectionVariants, itemVariants } from "@/lib/animations"
 import { useInView } from "react-intersection-observer"
 import { useState, useEffect } from 'react'
