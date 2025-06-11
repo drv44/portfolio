@@ -8,7 +8,10 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 export const metadata = {
   title: "SDE Portfolio | Dhruv Sarkar",
   description: "Modern portfolio of Dhruv Sarkar, an aspiring Software Engineer.",
-  viewport: "width=device-width, initial-scale=1"
+  viewport: "width=device-width, initial-scale=1",
+  icons: {
+    icon: '/logo.ico',  // Updated to match the user's file name; ensure it's in the public directory and in ICO format
+  },
 }
 
 export const viewport = {

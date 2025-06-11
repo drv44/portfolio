@@ -1,0 +1,33 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background is assumed to be dark, this SVG provides the neon element -->
+  <defs>
+    <!-- Define a linear gradient for the neon effect -->
+    <linearGradient id="neonGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <!-- Darker blue at the bottom -->
+      <stop offset="0%" style="stop-color:#00008B; stop-opacity:1" /> <!-- Dark Blue -->
+      <!-- Brighter blue in the middle -->
+      <stop offset="50%" style="stop-color:#00BFFF; stop-opacity:1" /> <!-- Deep Sky Blue -->
+      <!-- Lightest neon blue at the top -->
+      <stop offset="100%" style="stop-color:#00FFFF; stop-opacity:1" /> <!-- Aqua / Cyan -->
+    </linearGradient>
+  </defs>
+
+  <style>
+    /* Apply the gradient and glow to the letters */
+    .neon-gradient-bold {
+      fill: none;
+      stroke: url(#neonGradient); /* Use the defined gradient */
+      stroke-width: 10; /* Increased width significantly for a bolder appearance */
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      /* Adjust drop-shadow to match the general neon blue theme */
+      filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.9)); /* Stronger glow for extra bold text */
+    }
+  </style>
+
+  <!-- Letter D - now even bolder and uses the neon gradient -->
+  <path class="neon-gradient-bold" d="M16 10L16 54C16 54 20 58 28 58C36 58 40 54 40 46V18C40 10 36 6 28 6C20 6 16 10 16 10Z"/>
+
+  <!-- Letter S - now even bolder and uses the neon gradient -->
+  <path class="neon-gradient-bold" d="M48 10C48 10 50 6 42 6C34 6 30 10 30 18C30 26 34 30 42 30C50 30 54 26 54 34C54 42 50 46 42 46C34 46 30 42 30 34V10"/>
+</svg>
