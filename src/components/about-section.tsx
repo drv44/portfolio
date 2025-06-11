@@ -69,7 +69,7 @@ export default function AboutSection() {
         
         <div className="mt-20">
           <h3 className="mb-8 text-center text-3xl font-bold text-primary">My Skills</h3>
-          <div className="flex flex-row flex-nowrap items-stretch justify-center gap-6 overflow-x-auto">
+          <div className="flex flex-row flex-wrap items-stretch justify-center gap-6">
             <Card className="w-64 bg-background p-6 rounded-lg shadow-lg shadow-[0_0_30px_rgba(96,165,250,0.9)]">
               <CardHeader>
                 <CardTitle className="text-primary">Programming Languages</CardTitle>
